@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingRight="16dp"
+    android:layout_marginTop="100dp"
+    >
+
+    <TextView
+        android:id="@+id/txtview1"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_weight="1"
+        android:text="Nombre 1"
+        android:layout_margin="30dp"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/nbr1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:layout_alignParentRight="true"
+        android:layout_margin="28dp"
+        android:hint="Nombre 1"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/txtview2"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_below="@+id/txtview1"
+        android:layout_weight="1"
+        android:text="Nombre 2"
+        android:hint="Nombre 2"
+        android:layout_margin="30dp"
+        android:padding="10dp"
+        />
+
+    <EditText
+        android:id="@+id/nbr2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nbr1"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_margin="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="28dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Nombre 2"
+        android:inputType="numberSigned"
+        android:padding="8dp" />
+    <TextView
+        android:id="@+id/txtview3"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_below="@+id/txtview2"
+        android:layout_weight="1"
+        android:text="Résultat"
+        android:layout_margin="30dp"
+        android:padding="10dp"
+        />
+
+    <EditText
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nbr2"
+        android:layout_alignParentRight="true"
+        android:layout_margin="28dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Resultat"
+        android:inputType="numberSigned"
+        android:padding="8dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtview3"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:text="Somme" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/result"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="198dp"
+        android:layout_toEndOf="@+id/button"
+        android:layout_margin="30dp"
+        android:text="Reset" />
+
+
+</RelativeLayout>
