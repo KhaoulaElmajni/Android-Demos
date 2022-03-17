@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Splash Screen</string>
+    <string name="nomUtilisateur">User Name : </string>
+    <string name="nom">Name</string>
+    <string name="motDePasse">Password : </string>
+    <string name="mdp">Password</string>
+    <string name="infos">User Informations</string>
+    <string name="authentifier">Authenticate</string>
+    <string name="retour">Return</string>
+</resources>

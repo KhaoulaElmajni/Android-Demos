@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">الصفحة الرئيسية</string>
+<string name="nomUtilisateur">اسم المستخدم : </string>
+<string name="nom">الاسم</string>
+<string name="motDePasse">كلمة السر : </string>
+<string name="mdp">كلمة السر</string>
+<string name="infos">بيانات المستخدم</string>
+<string name="authentifier">تسجيل الدخول</string>
+<string name="retour">عودة</string>
+</resources>
