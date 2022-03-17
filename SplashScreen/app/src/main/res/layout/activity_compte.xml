@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="359dp" />
+        app:layout_constraintGuide_begin="406dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline9"
@@ -36,20 +36,20 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="303dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="64dp"
+        android:layout_width="348dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="200dp"
         android:text="@string/infos"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
     <TextView
         android:id="@+id/username"
-        android:layout_width="301dp"
+        android:layout_width="347dp"
         android:layout_height="36dp"
         android:layout_marginTop="32dp"
         android:text="@string/nomUtilisateur"
@@ -61,8 +61,8 @@
 
     <TextView
         android:id="@+id/password"
-        android:layout_width="301dp"
-        android:layout_height="36dp"
+        android:layout_width="344dp"
+        android:layout_height="39dp"
         android:text="@string/motDePasse"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -75,13 +75,51 @@
 
     <Button
         android:id="@+id/retour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="284dp"
+        android:layout_width="161dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="156dp"
+        android:background="@drawable/rounded_bg"
+        android:onClick="retour"
+        android:padding="15dp"
         android:text="Retour"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintEnd_toEndOf="@+id/password"
-        app:layout_constraintHorizontal_bias="0.502"
-        android:onClick="retour"
+        app:layout_constraintHorizontal_bias="0.327"
         app:layout_constraintStart_toStartOf="@+id/password" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="0dp"
+        android:layout_height="147dp"
+        android:background="@drawable/ic_wave6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="471dp"
+        android:layout_height="147dp"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/ic_wave4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.549"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/retour" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="170dp"
+        android:layout_height="124dp"
+        android:layout_marginTop="108dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintHorizontal_bias="0.368"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_baseline_account_circle_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>

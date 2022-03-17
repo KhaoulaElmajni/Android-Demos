@@ -3,8 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/SplashScreen/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1715" />
+        <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/SplashScreen/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.1715" />
+        <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/SplashScreen/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.1715" />
+        <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/SplashScreen/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1715" />
+        <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/SplashScreen/app/src/main/res/drawable/ic_wave.xml" value="0.1715" />
+        <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/SplashScreen/app/src/main/res/drawable/ic_wave2.xml" value="0.1715" />
+        <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/SplashScreen/app/src/main/res/drawable/rounded_bg.xml" value="0.1715" />
+        <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/SplashScreen/app/src/main/res/drawable/rounded_border.xml" value="0.1715" />
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/SplashScreen/app/src/main/res/layout/activity_compte.xml" value="0.27291666666666664" />
-        <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/SplashScreen/app/src/main/res/layout/activity_main.xml" value="0.25885416666666666" />
+        <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/SplashScreen/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/SplashScreen/app/src/main/res/layout/activity_splash_screen.xml" value="0.22" />
       </map>
     </option>
