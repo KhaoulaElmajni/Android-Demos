@@ -1,0 +1,80 @@
+[
+    {
+      "id" : 1,
+      "name" : "Mohamed Aalami",
+      "job": "Systems Architect",
+      "email" : "m.alami@gmail.com",
+      "phone": "0628294375"
+    },
+    {
+      "id" : 2,
+      "name" : "Sara El Amrani",
+      "job": "Sales Engineer",
+      "email" : "s.elamrani@gmail.com",
+      "phone": "0661568712"
+    },
+    {
+      "id" : 3,
+      "name" : "Rachid Mobtassim",
+      "job": "Mobile Developer",
+      "email" : "r.mobtassim@gmail.com",
+      "phone": "0618312546"
+    },
+    {
+      "id" : 4,
+      "name" : "Majida Khalil",
+      "job": "Devops Engineer",
+      "email" : "m.khalil@gmail.com",
+      "phone": "0618654532"
+    },
+    {
+      "id" : 5,
+      "name" : "Nabil Hachimi",
+      "job": "Data Engineer",
+      "email" : "n.hachimi@gmail.com",
+      "phone": "0617656538"
+    },
+    {
+      "id" : 6,
+      "name" : "Salma Semlali",
+      "job": "Project Manager",
+      "email" : "s.semlali@gmail.com",
+      "phone": "0678654459"
+    },
+  {
+    "id" : 7,
+    "name" : "Salma Semlali",
+    "job": "Project Manager",
+    "email" : "s.semlali@gmail.com",
+    "phone": "0678654459"
+  },
+  {
+    "id" : 8,
+    "name" : "Salma Semlali",
+    "job": "Project Manager",
+    "email" : "s.semlali@gmail.com",
+    "phone": "0678654459"
+  },
+  {
+    "id" : 9,
+    "name" : "Salma Semlali",
+    "job": "Project Manager",
+    "email" : "s.semlali@gmail.com",
+    "phone": "0678654459"
+  },
+  {
+    "id" : 10,
+    "name" : "Salma Semlali",
+    "job": "Project Manager",
+    "email" : "s.semlali@gmail.com",
+    "phone": "0678654459"
+  },
+  {
+    "id" : 11,
+    "name" : "Salma Semlali",
+    "job": "Project Manager",
+    "email" : "s.semlali@gmail.com",
+    "phone": "0678654459"
+  }
+  ]
+
