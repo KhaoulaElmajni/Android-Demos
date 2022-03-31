@@ -3,21 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="vertical"
+    android:layout_margin="30dp"
+    >
 
-     <!-- circle image view to show the image -->
+    <!-- circle image view to show the image -->
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profil_pic"
-        android:layout_width="101dp"
-        android:layout_height="87dp"
+        android:layout_width="match_parent"
+        android:layout_height="212dp"
         android:layout_centerInParent="true"
         android:layout_marginTop="15dp"
         android:src="@drawable/profil" />
 
     <RelativeLayout
-        android:layout_width="244dp"
-        android:layout_height="115dp"
+        android:layout_width="match_parent"
+        android:layout_height="197dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="8dp"
         android:orientation="vertical">
@@ -25,40 +27,46 @@
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="53dp"
             android:text="TextView"
             android:textColor="@color/black"
             android:textSize="25dp"
+            android:gravity="center"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/job"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="37dp"
             android:layout_below="@+id/name"
+            android:layout_marginTop="5dp"
             android:text="TextView"
             android:textColor="@color/blue"
             android:textSize="20dp"
+            android:gravity="center"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/phone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="42dp"
             android:layout_below="@+id/job"
             android:text="TextView"
             android:textColor="@color/blueCiel"
             android:textSize="18dp"
+            android:gravity="center"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/email"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_below="@+id/phone"
+            android:layout_marginTop="9dp"
             android:text="TextView"
             android:textColor="@color/grey"
             android:textSize="15dp"
+            android:gravity="center"
             android:textStyle="bold" />
     </RelativeLayout>
 
@@ -66,11 +74,11 @@
     <Button
         android:id="@+id/call"
         style="@style/callBtn"
-        android:layout_width="42dp"
-        android:layout_height="40dp"
+        android:layout_width="65dp"
+        android:layout_height="58dp"
+        android:layout_marginLeft="145dp"
         android:layout_marginTop="40dp"
         android:layout_marginRight="35dp"
         android:background="@drawable/appel"
-        android:onClick="makeCall"
-        android:focusable="false"/>
+        android:onClick="makeCall" />
 </LinearLayout>

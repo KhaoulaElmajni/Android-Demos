@@ -2,8 +2,10 @@ package me.elmajni.contactappjson;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import java.io.Serializable;
+
 @JsonDeserialize
-public class ItemModel {
+public class ItemModel implements Serializable {
     private Long id;
     private String name;
     private String email;
@@ -60,5 +62,14 @@ public class ItemModel {
         this.phone = phone;
     }
 
-
+    @Override
+    public String toString() {
+        return "ItemModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", job='" + job + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
 }

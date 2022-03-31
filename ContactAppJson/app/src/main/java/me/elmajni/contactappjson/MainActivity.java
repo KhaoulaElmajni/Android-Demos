@@ -7,13 +7,16 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -25,6 +28,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private Button call;
+    private ListView lv;
     private static ObjectMapper mapper = new ObjectMapper();
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -41,13 +45,35 @@ public class MainActivity extends AppCompatActivity {
                 liste.add(item);
             //Appeller l'adaptateur
             monAdaptateur myAdapter = new monAdaptateur(liste);
-            ListView lv = findViewById(R.id.maliste);
+            lv = findViewById(R.id.maliste);
             lv.setAdapter(myAdapter);
+            lv.setClickable(true);
+            //on item click
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Intent intent = new Intent(MainActivity.this,Pop.class);
+                    //ItemModel itemModel = (ItemModel) lv.getSelectedItem();
+                    ItemModel itemModel = (ItemModel) lv.getItemAtPosition(i);
+                    String name = itemModel.getName();
+                    String job = itemModel.getJob();
+                    String phone = itemModel.getPhone();
+                    String email = itemModel.getEmail();
+
+                    Bundle bundle = new Bundle();
+                    bundle.putString("name",name);
+                    bundle.putString("phone",phone);
+                    bundle.putString("job",job);
+                    bundle.putString("email",email);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                    Toast.makeText(MainActivity.this, name, Toast.LENGTH_SHORT).show();
+                }
+            });
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
-
     public void makeCall(View view) {
         call = findViewById(R.id.call);
         Intent intent = new Intent(Intent.ACTION_DIAL);
@@ -66,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
             return eltList.size();
         }
 
-        public Object getItem(int i) {
-            return eltList.get(i).getName();
+        public ItemModel getItem(int i) {
+            return eltList.get(i);
         }
 
         public long getItemId(int i) {
