@@ -3,12 +3,15 @@ package me.elmajni.contactappjson;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,6 +24,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button call;
     private static ObjectMapper mapper = new ObjectMapper();
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -28,13 +32,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ArrayList<ItemModel> liste = new ArrayList<>();
         try {
             // convert JSON array to list of contacts
             List<ItemModel> contacts = Arrays.asList(mapper.readValue(getResources().openRawResource(R.raw.data_json), ItemModel[].class));
             for(ItemModel item: contacts)
                 liste.add(item);
-            //Apler l'adaptateur
+            //Appeller l'adaptateur
             monAdaptateur myAdapter = new monAdaptateur(liste);
             ListView lv = findViewById(R.id.maliste);
             lv.setAdapter(myAdapter);
@@ -44,7 +49,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void makeCall(View view) {
-
+        call = findViewById(R.id.call);
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:0639127097"));
+        startActivity(intent);
     }
 
     class monAdaptateur extends BaseAdapter {
