@@ -1,6 +1,7 @@
 package me.elmajni.sqliteapp;
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -14,8 +15,12 @@ public class DBConnexion extends SQLiteOpenHelper {
         super(context, "Personnes.db", null, 1);
     }
     public void insertNewPersonne(String name){
+        //SQLiteDatabase wDB = this.getWritableDatabase();
+       // wDB.execSQL("INSERT INTO Personnes(Name) VALUES ("+name+")");
         SQLiteDatabase wDB = this.getWritableDatabase();
-        wDB.execSQL("INSERT INTO Personnes (Name) VALUES ("+name+")");
+        ContentValues contentValue = new ContentValues();
+        contentValue.put("Name", name);
+        wDB.insert("Personnes",null,contentValue);
     }
 
     public void deleteRow(Integer id){
