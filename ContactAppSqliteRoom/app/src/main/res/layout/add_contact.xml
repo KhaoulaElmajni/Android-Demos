@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="30dp"
+    >
+
+    <!-- circle image view to show the image -->
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profil_pic"
+        android:layout_width="match_parent"
+        android:layout_height="212dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_person" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="252dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:padding="12dp"
+            android:background="@drawable/rounded_border"
+            android:drawableStart="@drawable/ic_person"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Full Name"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/job"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_below="@+id/name"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_border"
+            android:drawableStart="@drawable/ic_baseline_work_24"
+            android:gravity="center"
+            android:hint="Job"
+            android:padding="12dp"
+            android:textColor="@color/blue"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_below="@+id/job"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_border"
+            android:drawableStart="@drawable/ic_phone_"
+            android:gravity="center"
+            android:hint="Phone number"
+            android:padding="12dp"
+            android:textColor="@color/blueCiel"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_below="@+id/phone"
+            android:layout_marginTop="5dp"
+            android:padding="12dp"
+            android:background="@drawable/rounded_border"
+            android:drawableStart="@drawable/ic_email"
+            android:gravity="center"
+            android:hint="Email"
+            android:textColor="@color/grey"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/ic_home" />
+
+</LinearLayout>
