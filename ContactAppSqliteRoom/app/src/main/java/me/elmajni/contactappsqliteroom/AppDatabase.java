@@ -26,5 +26,5 @@ public abstract class AppDatabase extends RoomDatabase {
         return appDatabase;
     }
     //create DAO method that returns DAO obj
-    public abstract DAO personneDao();
+    public abstract DAO contactDao();
 }

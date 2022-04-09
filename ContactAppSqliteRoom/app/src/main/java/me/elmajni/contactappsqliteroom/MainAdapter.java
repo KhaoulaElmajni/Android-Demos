@@ -22,11 +22,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     private List<Contact> contacts;
     private Activity context;
     private AppDatabase db;
+    private ItemClickListener itemClickListener;
     //Create constructor
-    public MainAdapter(Activity context, List<Contact> contacts)
+    public MainAdapter(Activity context, List<Contact> contacts, ItemClickListener itemClickListener)
     {
        this.context=context;
        this.contacts = contacts;
+       this.itemClickListener = itemClickListener;
        notifyDataSetChanged();
     }
 
@@ -41,60 +43,27 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         // Initialize main data
-        Contact personne= contacts.get(position);
+        Contact contact= contacts.get(position);
         // Initialize database
         db =AppDatabase.getInstance(context);
         // Set text on text view
-        holder.textView.setText(personne.getId()+" : "+personne.getName());
-
-        holder.btEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //initialize main data
-                Contact personne1= contacts.get(holder.getAdapterPosition());
-                //get id
-                final int ID=personne1.getId();
-                //get name
-                String name=personne1.getName();
-                //create dialog window for updating
-                final Dialog dialog=new Dialog(context);
-                //set content view
-                dialog.setContentView(R.layout.dialog_update);
-                //Initialize width & height
-                int width= WindowManager.LayoutParams.MATCH_PARENT;
-                int height=WindowManager.LayoutParams.WRAP_CONTENT;
-                dialog.getWindow().setLayout(width,height);
-
-                //show update dialog
-                dialog.show();
-
-                //Initialize views
-                EditText editText=dialog.findViewById(R.id.name);
-                Button btUpdate=dialog.findViewById(R.id.btnUpdate);
-                editText.setText(name);
-
-                btUpdate.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //close dialog window
-                        dialog.dismiss();
-                        //get Updated person from edit text
-                        String name=editText.getText().toString().trim();
-                        //update person in DB
-                        db.personneDao().update(ID, name);
-                        //notify when data is updated
-                        personnes.clear();
-                        personnes.addAll(db.personneDao().getAll());
-                        notifyDataSetChanged();
-                    }
-                });
-            }
-        });
+        holder.name.setText(contact.getName());
+        holder.job.setText(contact.getJob());
+        holder.email.setText(contact.getEmail());
+        holder.phone.setText(contact.getPhone());
+        holder.itemView.setOnClickListener(view -> {
+            itemClickListener.onItemClick(contacts.get(position));
+        } );
     }
     @Override
     public int getItemCount() {
         return contacts.size();
     }
+
+    public interface ItemClickListener{
+        public void onItemClick(Contact contact);
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView name,job,email,phone;
         public ViewHolder(@NonNull View itemView) {

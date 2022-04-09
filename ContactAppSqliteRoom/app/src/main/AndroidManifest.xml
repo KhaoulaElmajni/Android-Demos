@@ -13,6 +13,9 @@
             android:name=".AddContact"
             android:exported="false" />
         <activity
+            android:name=".UpdateContact"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">

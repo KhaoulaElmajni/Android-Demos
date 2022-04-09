@@ -35,7 +35,7 @@
             android:textSize="25dp"
             android:textStyle="bold" />
 
-        <TextView
+        <EditText
             android:id="@+id/job"
             android:layout_width="match_parent"
             android:layout_height="55dp"
