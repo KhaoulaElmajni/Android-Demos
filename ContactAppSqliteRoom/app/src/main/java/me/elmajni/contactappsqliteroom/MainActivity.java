@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
             @Override
-            public void onItemLongClick(int position) {
+            public void onItemLongClick(Contact contact) {
                 AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
 //set icon
                         .setIcon(R.drawable.ic_warn)
@@ -99,10 +99,9 @@ public class MainActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //set what would happen when positive button is clicked
                                 //contacts.remove(position);
-                                db.contactDao().delete(contacts.get(position));
+                                db.contactDao().delete(contact);
                                 contacts = db.contactDao().getAll();
-                                adapter.notifyItemRemoved(position);
-                                finish();
+                                adapter.notifyItemRemoved(contacts.indexOf(contact));
                             }
                         })
 //set negative button

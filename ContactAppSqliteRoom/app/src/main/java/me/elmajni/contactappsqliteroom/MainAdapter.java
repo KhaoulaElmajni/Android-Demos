@@ -61,6 +61,10 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> im
         holder.itemView.setOnClickListener(view -> {
             itemClickListener.onItemClick(contacts.get(position));
         } );
+        holder.itemView.setOnLongClickListener(view -> {
+            itemClickListener.onItemLongClick(contacts.get(position));
+            return true;
+        } );
     }
     @Override
     public int getItemCount() {
@@ -101,25 +105,19 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> im
 
     public interface ItemClickListener{
         public void onItemClick(Contact contact);
-        public void onItemLongClick(int position);
+        public void onItemLongClick(Contact contact);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView name,job,email,phone;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
             name=itemView.findViewById(R.id.name);
             job=itemView.findViewById(R.id.job);
             email = itemView.findViewById(R.id.email);
             phone = itemView.findViewById(R.id.phone);
 
-            itemView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View view) {
-
-                    return true;
-                }
-            });
         }
     }
 }

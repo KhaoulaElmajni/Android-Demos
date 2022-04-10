@@ -18,12 +18,15 @@ public class UpdateContact extends AppCompatActivity {
     private AppDatabase db;
     private FloatingActionButton fab;
     private EditText name,job,email,phone;
+    public static int contactId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.update_view);
         fab = findViewById(R.id.fab);
         setAllViews();
+        db =AppDatabase.getInstance(this);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -35,6 +38,7 @@ public class UpdateContact extends AppCompatActivity {
         });
         Gson gson = new Gson();
         Contact contact = gson.fromJson(getIntent().getStringExtra("contactJson"), Contact.class);
+        contactId = contact.getId();
         name.setText(contact.getName());
         phone.setText(contact.getPhone());
         job.setText(contact.getJob());
@@ -65,7 +69,7 @@ public class UpdateContact extends AppCompatActivity {
                 String phoneTxt=phone.getText().toString().trim();
                 String emailTxt=email.getText().toString().trim();
                 //update person in DB
-                //db.contactDao().update(ID, nameTxt,jobTxt,emailTxt,phoneTxt);
+                db.contactDao().update(contactId, nameTxt,jobTxt,emailTxt,phoneTxt);
                 refreshViews();
                 break;
         }
