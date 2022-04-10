@@ -70,7 +70,8 @@ public class UpdateContact extends AppCompatActivity {
                 String emailTxt=email.getText().toString().trim();
                 //update person in DB
                 db.contactDao().update(contactId, nameTxt,jobTxt,emailTxt,phoneTxt);
-                refreshViews();
+                Intent intent =new Intent(UpdateContact.this,MainActivity.class);
+                startActivity(intent);
                 break;
         }
         return super.onOptionsItemSelected(item);

@@ -1,14 +1,17 @@
 package me.elmajni.contactappsqliteroom;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -56,14 +59,43 @@ public class AddContact extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.save:
-                Contact contact=new Contact();
-                contact.setName(name.getText().toString());
-                contact.setJob(job.getText().toString());
-                contact.setPhone(phone.getText().toString());
-                contact.setEmail(email.getText().toString());
-                //insert personne in db
-                db.contactDao().insert(contact);
-                refreshViews();
+                if (name.getText().toString().equals("") || job.getText().toString().equals("") ||
+                        phone.getText().toString().equals("") || email.getText().toString().equals("")){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    //Setting message manually and performing action on button click
+                    builder.setMessage("Un ou plusieurs de vos shmaps est vide!!!\nVeuillez remplir tous les shamps.")
+                            .setCancelable(false)
+                            .setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    finish();
+                                    Toast.makeText(AddContact.this, "Vous avez quitter l'pération d'ajout", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    //  Action for 'NO' Button
+                                    dialog.cancel();
+                                    Toast.makeText(getApplicationContext(),"Continuer le remplissage des shamps",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                    //Creating dialog box
+                    AlertDialog alert = builder.create();
+                    //Setting the title manually
+                    alert.setTitle("Attention!");
+                    alert.setIcon(R.drawable.ic_warn);
+                    alert.show();
+                }else {
+                    Contact contact=new Contact();
+                    contact.setName(name.getText().toString());
+                    contact.setJob(job.getText().toString());
+                    contact.setPhone(phone.getText().toString());
+                    contact.setEmail(email.getText().toString());
+                    //insert personne in db
+                    db.contactDao().insert(contact);
+                    Intent intent =new Intent(AddContact.this,MainActivity.class);
+                    startActivity(intent);
+                }
                 break;
             case R.id.refresh:
                 refreshViews();

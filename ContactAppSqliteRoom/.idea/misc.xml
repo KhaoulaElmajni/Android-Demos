@@ -9,6 +9,7 @@
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/ContactAppSqliteRoom/app/src/main/res/drawable/ic_home.xml" value="0.141" />
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/ContactAppSqliteRoom/app/src/main/res/drawable/ic_launcher_background.xml" value="0.133" />
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/ContactAppSqliteRoom/app/src/main/res/drawable/ic_phone_.xml" value="0.1495" />
+        <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/ContactAppSqliteRoom/app/src/main/res/drawable/ic_warn.xml" value="0.155" />
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/ContactAppSqliteRoom/app/src/main/res/drawable/rounded_bg.xml" value="0.1495" />
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/ContactAppSqliteRoom/app/src/main/res/drawable/rounded_border.xml" value="0.1495" />
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/ContactAppSqliteRoom/app/src/main/res/layout/activity_add_contact.xml" value="0.27291666666666664" />
@@ -18,7 +19,8 @@
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/ContactAppSqliteRoom/app/src/main/res/layout/content_main.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/ContactAppSqliteRoom/app/src/main/res/layout/fragment_first.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/ContactAppSqliteRoom/app/src/main/res/layout/fragment_second.xml" value="0.27291666666666664" />
-        <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/ContactAppSqliteRoom/app/src/main/res/layout/list_row.xml" value="0.22448979591836735" />
+        <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/ContactAppSqliteRoom/app/src/main/res/layout/layout_custom_title.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/ContactAppSqliteRoom/app/src/main/res/layout/list_row.xml" value="0.33" />
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/ContactAppSqliteRoom/app/src/main/res/layout/recyclerview.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/ContactAppSqliteRoom/app/src/main/res/layout/update_view.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/ContactAppSqliteRoom/app/src/main/res/menu/add_contact_menu.xml" value="0.27291666666666664" />
@@ -37,7 +39,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.22448979591836735" />
+        <option name="scale" value="0.33" />
       </ProjectState>
     </option>
   </component>

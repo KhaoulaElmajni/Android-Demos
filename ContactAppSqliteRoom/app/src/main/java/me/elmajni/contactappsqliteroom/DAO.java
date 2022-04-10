@@ -28,7 +28,7 @@ public interface DAO {
     List<Contact> getAll();
 
     @Delete
-    void delete(Contact personne);
+    void delete(Contact contact);
 
     @Query("select * from CONTACT where name = :name")
     Contact findContactByName(String name);

@@ -2,14 +2,14 @@
 <androidx.cardview.widget.CardView
 
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
     style="@style/CardView">
     <!-- circle image view to show the image -->
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="407dp"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
@@ -24,8 +24,8 @@
             android:src="@drawable/profil" />
 
         <RelativeLayout
-            android:layout_width="244dp"
-            android:layout_height="115dp"
+            android:layout_width="231dp"
+            android:layout_height="118dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="8dp"
             android:orientation="vertical">
@@ -33,20 +33,22 @@
             <TextView
                 android:id="@+id/name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
+                android:fontFamily="cursive"
                 android:text="TextView"
                 android:textColor="@color/black"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/job"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="32dp"
                 android:layout_below="@+id/name"
+                android:fontFamily="cursive"
                 android:text="TextView"
                 android:textColor="@color/blue"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -54,6 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/job"
+                android:fontFamily="cursive"
                 android:text="TextView"
                 android:textColor="@color/blueCiel"
                 android:textSize="18dp"
@@ -64,20 +67,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/phone"
+                android:layout_marginTop="3dp"
+                android:fontFamily="cursive"
                 android:text="TextView"
                 android:textColor="@color/grey"
                 android:textSize="15dp"
                 android:textStyle="bold" />
         </RelativeLayout>
-        <Button
-            android:id="@+id/call"
-            style="@style/callBtn"
-            android:layout_width="42dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="35dp"
-            android:background="@drawable/appel"
-            android:onClick="makeCall"
-            android:focusable="false"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/call"
+                style="@style/callBtn"
+                android:layout_width="42dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/appel"
+                android:focusable="false" />
+
+            <Button
+                android:id="@+id/msg"
+                style="@style/callBtn"
+                android:layout_width="42dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="35dp"
+                android:background="@drawable/ic_msg"
+                android:focusable="false" />
+        </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -1,7 +1,9 @@
 package me.elmajni.contactappsqliteroom;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -9,12 +11,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import androidx.appcompat.widget.SearchView;
+import androidx.core.app.ActivityCompat;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -38,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         fab = findViewById(R.id.fab);
 
+        ActivityCompat.requestPermissions(MainActivity.this,
+                new String[]{
+                        Manifest.permission.CALL_PHONE
+                },
+                1);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
 
         recyclerView=findViewById(R.id.recyclerView);
 
@@ -60,21 +70,7 @@ public class MainActivity extends AppCompatActivity {
         linearLayoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        /*Contact contact=new Contact();
-        contact.setName("khaoula elmajni");
-        contact.setJob("Software Engineer");
-        contact.setPhone("0639127097");
-        contact.setEmail("elmajnikhaoula@gmail.Com");
-        //insert personne in db
-        db.contactDao().insert(contact);
-        Contact contact1=new Contact();
-        contact1.setName("khaoula elmajni");
-        contact1.setJob("Software Engineer");
-        contact1.setPhone("0639127097");
-        contact1.setEmail("elmajnikhaoula@gmail.Com");
-        //insert personne in db
-        db.contactDao().insert(contact);*/
-        //initialize & set adapter
+
         adapter=new MainAdapter(MainActivity.this, contacts, new MainAdapter.ItemClickListener() {
             @Override
             public void onItemClick(Contact contact) {
@@ -87,29 +83,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemLongClick(Contact contact) {
                 AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
-//set icon
                         .setIcon(R.drawable.ic_warn)
-//set title
-                        .setTitle("Are you sure to delete")
-//set message
-                        .setMessage("delete this contact")
-//set positive button
+                        .setTitle("Etes-vous sur de supprimer ce contact!")
+                        .setMessage("Le contact va etre supprimer pour toujours.\nAucun cache n'est disponible.")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                //set what would happen when positive button is clicked
-                                //contacts.remove(position);
                                 db.contactDao().delete(contact);
-                                contacts = db.contactDao().getAll();
-                                adapter.notifyItemRemoved(contacts.indexOf(contact));
+                                contacts.clear();
+                                contacts.addAll(db.contactDao().getAll());
+                                adapter.notifyDataSetChanged();
                             }
                         })
-//set negative button
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                //set what should happen when negative button is clicked
-
                                 Toast.makeText(getApplicationContext(),"Nothing Happened",Toast.LENGTH_LONG).show();
                             }
                         })
@@ -149,4 +137,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

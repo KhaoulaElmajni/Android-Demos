@@ -2,6 +2,8 @@ package me.elmajni.contactappsqliteroom;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +31,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> im
     private AppDatabase db;
     private ItemClickListener itemClickListener;
     private List<Contact> contactListAll;
+
     //Create constructor
     public MainAdapter(Activity context, List<Contact> contacts, ItemClickListener itemClickListener)
     {
@@ -65,6 +68,24 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> im
             itemClickListener.onItemLongClick(contacts.get(position));
             return true;
         } );
+
+        holder.call.setTag(contact);
+        holder.sendMsg.setTag(contact);
+        holder.call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Contact contact = (Contact) view.getTag();
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + contact.getPhone()));
+                context.startActivity(intent);
+            }
+        });
+
+        holder.sendMsg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", contact.getPhone(), null)));
+            }
+        });
     }
     @Override
     public int getItemCount() {
@@ -110,6 +131,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> im
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView name,job,email,phone;
+        Button call,sendMsg;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -117,6 +139,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> im
             job=itemView.findViewById(R.id.job);
             email = itemView.findViewById(R.id.email);
             phone = itemView.findViewById(R.id.phone);
+            call = itemView.findViewById(R.id.call);
+            sendMsg = itemView.findViewById(R.id.msg);
+
 
         }
     }
