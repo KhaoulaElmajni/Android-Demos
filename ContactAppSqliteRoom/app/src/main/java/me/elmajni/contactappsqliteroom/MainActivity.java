@@ -1,17 +1,21 @@
 package me.elmajni.contactappsqliteroom;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
+
+import androidx.appcompat.widget.SearchView;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import me.elmajni.contactappsqliteroom.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -80,15 +84,48 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("contactJson", contactJson);
                 startActivity(intent);
             }
+            @Override
+            public void onItemLongClick(int position) {
+                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
+//set icon
+                        .setIcon(R.drawable.ic_warn)
+//set title
+                        .setTitle("Are you sure to delete")
+//set message
+                        .setMessage("delete this contact")
+//set positive button
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //set what would happen when positive button is clicked
+                                //contacts.remove(position);
+                                db.contactDao().delete(contacts.get(position));
+                                contacts = db.contactDao().getAll();
+                                adapter.notifyItemRemoved(position);
+                                finish();
+                            }
+                        })
+//set negative button
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //set what should happen when negative button is clicked
+
+                                Toast.makeText(getApplicationContext(),"Nothing Happened",Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .show();
+            }
         });
         recyclerView.setAdapter(adapter);
+        //recyclerView.scrollToPosition(contacts.size()-1);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         //la recherche
-       /* MenuItem menuItem = menu.findItem(R.id.search);
+        MenuItem menuItem = menu.findItem(R.id.search);
         SearchView searchView = (SearchView) menuItem.getActionView();
         searchView.setQueryHint("Search here...");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -98,9 +135,10 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override //every change of carac
             public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
                 return false;
             }
-        });*/
+        });
         return super.onCreateOptionsMenu(menu);
     }
     @Override
