@@ -87,5 +87,6 @@
         android:layout_gravity="bottom|center"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/blueCiel"
         app:srcCompat="@drawable/ic_home" />
 </LinearLayout>

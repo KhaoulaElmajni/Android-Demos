@@ -5,20 +5,25 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 public class UpdateContact extends AppCompatActivity {
     private AppDatabase db;
     private FloatingActionButton fab;
     private EditText name,job,email,phone;
     public static int contactId;
+    private ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -43,6 +48,17 @@ public class UpdateContact extends AppCompatActivity {
         phone.setText(contact.getPhone());
         job.setText(contact.getJob());
         email.setText(contact.getEmail());
+        if (contact.getPhoto() != null)
+            Picasso.get().load("file:///android_asset/" + contact.getPhoto()+".png").into(imageView,
+                    new Callback() {
+                        @Override
+                        public void onSuccess() {
+                        }
+                        @Override
+                        public void onError(Exception e) {
+                            Log.e("Error "," opening image"+"file:///android_asset/" + contact.getPhoto());
+                        }
+                    });
     }
 
     private void setAllViews() {
@@ -50,6 +66,7 @@ public class UpdateContact extends AppCompatActivity {
         job = findViewById(R.id.job);
         phone = findViewById(R.id.phone);
         email = findViewById(R.id.email);
+        imageView = findViewById(R.id.profil_pic);
     }
 
     @Override

@@ -15,7 +15,7 @@
         android:layout_height="212dp"
         android:layout_centerInParent="true"
         android:layout_marginTop="15dp"
-        android:src="@drawable/profil" />
+        android:src="@drawable/user" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -93,6 +93,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/blueCiel"
         app:srcCompat="@drawable/ic_home" />
 
 </LinearLayout>

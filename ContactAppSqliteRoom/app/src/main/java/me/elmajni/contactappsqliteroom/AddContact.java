@@ -91,7 +91,8 @@ public class AddContact extends AppCompatActivity {
                     contact.setJob(job.getText().toString());
                     contact.setPhone(phone.getText().toString());
                     contact.setEmail(email.getText().toString());
-                    contact.setPhoto("photo1");
+                    int nbr = getRandomNumber(1,12);
+                    contact.setPhoto("photo"+nbr);
                     //insert personne in db
                     db.contactDao().insert(contact);
                     Intent intent =new Intent(AddContact.this,MainActivity.class);
@@ -110,5 +111,8 @@ public class AddContact extends AppCompatActivity {
         job.setText("");
         email.setText("");
         phone.setText("");
+    }
+    public int getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
     }
 }
