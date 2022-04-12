@@ -18,14 +18,24 @@ public class Contact implements Serializable {
     private String email;
     private String job;
     private String phone;
+    private String photo;
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
 
     public Contact() {
     }
-    public Contact(String name, String email, String job, String phone) {
+    public Contact(String name, String email, String job, String phone,String photo) {
         this.name = name;
         this.email = email;
         this.job = job;
         this.phone = phone;
+        this.photo = photo;
     }
 
     public void setId(int id) {

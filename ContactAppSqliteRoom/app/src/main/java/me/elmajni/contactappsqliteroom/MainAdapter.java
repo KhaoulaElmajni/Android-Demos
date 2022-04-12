@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +19,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> implements Filterable {
 
@@ -86,6 +92,17 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> im
                 context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", contact.getPhone(), null)));
             }
         });
+        if (contact.getPhoto() != null)
+            Picasso.get().load("file:///android_asset/" + contact.getPhoto()+".png").into(holder.photo,
+                    new Callback() {
+                @Override
+                public void onSuccess() {
+                }
+                @Override
+                public void onError(Exception e) {
+                    Log.e("Error "," opening image"+"file:///android_asset/" + contact.getPhoto());
+                }
+            });
     }
     @Override
     public int getItemCount() {
@@ -132,6 +149,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> im
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView name,job,email,phone;
         Button call,sendMsg;
+        CircleImageView photo;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -141,8 +159,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> im
             phone = itemView.findViewById(R.id.phone);
             call = itemView.findViewById(R.id.call);
             sendMsg = itemView.findViewById(R.id.msg);
-
-
+            photo = itemView.findViewById(R.id.profil_pic);
         }
     }
 }

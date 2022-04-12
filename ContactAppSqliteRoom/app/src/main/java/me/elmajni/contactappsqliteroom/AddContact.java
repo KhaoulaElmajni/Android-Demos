@@ -91,6 +91,7 @@ public class AddContact extends AppCompatActivity {
                     contact.setJob(job.getText().toString());
                     contact.setPhone(phone.getText().toString());
                     contact.setEmail(email.getText().toString());
+                    contact.setPhoto("photo1");
                     //insert personne in db
                     db.contactDao().insert(contact);
                     Intent intent =new Intent(AddContact.this,MainActivity.class);
