@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
         linearLayoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-
         adapter=new MainAdapter(MainActivity.this, contacts, new MainAdapter.ItemClickListener() {
             @Override
             public void onItemClick(Contact contact) {

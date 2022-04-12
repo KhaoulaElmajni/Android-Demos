@@ -36,7 +36,7 @@
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:fontFamily="@font/arizonia"
+                android:fontFamily="@font/patua_one"
                 android:text="TextView"
                 android:textColor="@color/black"
                 android:textSize="24dp"
@@ -80,7 +80,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="2dp"
             android:orientation="vertical">
 
             <Button
@@ -88,7 +88,7 @@
                 style="@style/callBtn"
                 android:layout_width="42dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/appel"
                 android:focusable="false" />
@@ -98,9 +98,18 @@
                 style="@style/callBtn"
                 android:layout_width="42dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="35dp"
                 android:background="@drawable/ic_msg"
+                android:focusable="false" />
+            <Button
+                android:id="@+id/vid_call"
+                style="@style/callBtn"
+                android:layout_width="42dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="35dp"
+                android:background="@drawable/ic_video_call"
                 android:focusable="false" />
         </LinearLayout>
     </LinearLayout>
