@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/check"
+        android:icon="@drawable/ic_baseline_check"
+        android:orderInCategory="100"
+        android:title="check"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/settings"
+        android:orderInCategory="100"
+        android:title="refresh"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/theme"
+        android:icon="@drawable/ic_baseline_brightness_4_24"
+        android:orderInCategory="100"
+        android:title="refresh"
+        app:showAsAction="always" />
+</menu>
