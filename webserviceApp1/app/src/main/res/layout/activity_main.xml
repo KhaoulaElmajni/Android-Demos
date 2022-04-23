@@ -16,7 +16,7 @@
         android:hint="Saisir un nom de personne"
         android:padding="12dp"
         android:background="@drawable/rounded_border"
-        android:drawableStart="@drawable/ic_person"
+        android:drawableStart="@drawable/ic_task"
         android:ems="10"
         ></EditText>
     <LinearLayout
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/btnAdd"
-            android:text="Ajouter"
+            android:text="Add Task"
             android:background="@drawable/rounded_bg"
             android:layout_margin="5dp"
             style="@style/btn"
@@ -43,7 +43,7 @@
             android:layout_weight="1"
             android:id="@+id/btnRst"
             android:background="@drawable/rounded_bg"
-            android:text="Vider"
+            android:text="Reset"
             android:layout_margin="5dp"
             style="@style/btn"
             android:textSize="20sp"

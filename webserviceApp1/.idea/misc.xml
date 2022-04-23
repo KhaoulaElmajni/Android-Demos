@@ -4,9 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/webserviceApp1/app/src/main/res/drawable/ic_delete.xml" value="0.215" />
+        <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/webserviceApp1/app/src/main/res/drawable/ic_task.xml" value="0.1" />
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/webserviceApp1/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/webserviceApp1/app/src/main/res/layout/activity_register_user.xml" value="0.27291666666666664" />
-        <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/webserviceApp1/app/src/main/res/layout/dialog_update.xml" value="0.15885416666666666" />
+        <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/webserviceApp1/app/src/main/res/layout/dialog_update.xml" value="0.25" />
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/webserviceApp1/app/src/main/res/layout/list_row.xml" value="0.27291666666666664" />
       </map>
     </option>
