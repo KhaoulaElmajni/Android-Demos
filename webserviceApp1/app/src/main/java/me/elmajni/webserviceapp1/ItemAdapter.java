@@ -25,6 +25,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         this.inflater = LayoutInflater.from(context);
         this.tasks = tasks;
         this.context= context;
+        notifyDataSetChanged();
     }
 
     @NonNull
