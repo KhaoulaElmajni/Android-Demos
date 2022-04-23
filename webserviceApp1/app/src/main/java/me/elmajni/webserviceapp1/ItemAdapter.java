@@ -99,7 +99,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         TextView taskname,taskstatus;
         EditText taskinput;
         ImageView btEdit, btDelete;
-        Button add,reset;
+
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
             taskname=itemView.findViewById(R.id.taskname);
@@ -107,8 +107,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             btEdit=itemView.findViewById(R.id.btnEdit);
             btDelete = itemView.findViewById(R.id.btnDelete);
             taskinput= itemView.findViewById(R.id.taskInput);
-            add = itemView.findViewById(R.id.btnAdd);
-            reset = itemView.findViewById(R.id.btnRst);
+
         }
     }
 }
