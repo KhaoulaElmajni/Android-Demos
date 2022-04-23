@@ -2,6 +2,7 @@ package me.elmajni.webserviceapp1;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +11,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
     LayoutInflater inflater;
@@ -78,9 +92,38 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         });
 
         holder.btDelete.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-
+                JsonObjectRequest deleteRequest = new  JsonObjectRequest(Request.Method.DELETE,
+                        URLs.ROOT_URL+String.valueOf(holder.getAdapterPosition()+2),null,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                Log.d("Response ", response.toString());
+                                System.out.println(URLs.ROOT_URL+String.valueOf(holder.getAdapterPosition()+1));
+                                Toast.makeText(context,response.toString(),Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context,String.valueOf(holder.getAdapterPosition()+1) ,Toast.LENGTH_SHORT).show();
+                                notifyDataSetChanged();
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                System.out.println(error.getMessage()+"****"+URLs.ROOT_URL+holder.getAdapterPosition());
+                                Toast.makeText(context,error.getMessage()+"****"+URLs.ROOT_URL+holder.getItemId()+error.toString(),Toast.LENGTH_SHORT).show();
+                            }
+                        }){
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> params = new HashMap<>();
+                        params.put("id",String.valueOf(holder.getAdapterPosition()+2));
+                        return super.getParams();
+                    }
+                };
+                // And finally, we create a Volley Queue
+                RequestQueue requestQueue = Volley.newRequestQueue(context);
+                requestQueue.add(deleteRequest);
             }
         });
     }
