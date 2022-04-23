@@ -24,7 +24,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<Task> taskList;
-    private static String JSON_URL = "http://localhost:8090/tasks";
+    private static String JSON_URL = "http://192.168.88.1:8090/tasks/";
     ItemAdapter adapter;
 
     @Override
@@ -35,7 +35,39 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.tasksList);
         taskList = new ArrayList<>();
 
-        extractTasks();
+        //extractTasks();
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
+                Request.Method.GET,JSON_URL,null,
+                new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject taskObject = response.getJSONObject(i);
+
+                        Task task = new Task();
+                        task.setName(taskObject.getString("name"));
+                        task.setStatus(taskObject.getString("status"));
+
+                        taskList.add(task);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                adapter = new ItemAdapter(getApplicationContext(),taskList);
+                adapter.notifyDataSetChanged();
+                recyclerView.setAdapter(adapter);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("tag","onErrorResponse: "+error.getMessage());
+            }
+        });
+        requestQueue.add(jsonArrayRequest);
     }
     private void extractTasks() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);

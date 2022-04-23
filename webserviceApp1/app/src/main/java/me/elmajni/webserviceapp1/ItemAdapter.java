@@ -30,34 +30,29 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ItemAdapter.ItemViewHolder holder, int position) {
-        holder.taskInput.setText(tasks.get(position).getName());
-        holder.stat.setText(tasks.get(position).getId());
+        holder.taskname.setText(tasks.get(position).getName());
+        holder.taskstatus.setText(tasks.get(position).getStatus());
     }
 
     @Override
     public int getItemCount() {
         int a ;
-
         if(tasks != null && !tasks.isEmpty()) {
-
             a = tasks.size();
         }
         else {
-
             a = 0;
-
         }
-
         return a;
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder {
-        TextView taskInput,stat;
+        TextView taskname,taskstatus;
         ImageView btEdit, btDelete;
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
-            taskInput=itemView.findViewById(R.id.taskInput);
-            stat = itemView.findViewById(R.id.state);
+            taskname=itemView.findViewById(R.id.taskname);
+            taskstatus = itemView.findViewById(R.id.taskstatus);
             btEdit=itemView.findViewById(R.id.btnEdit);
             btDelete = itemView.findViewById(R.id.btnDelete);
         }
