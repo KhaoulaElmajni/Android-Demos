@@ -4,12 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import cn.pedant.SweetAlert.SweetAlertDialog;
+
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -36,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         reset = findViewById(R.id.btnRst);
         taskInput = findViewById(R.id.taskInput);
         taskDetails = findViewById(R.id.taskDetails);
+
+
 
         recyclerView = findViewById(R.id.tasksList);
         layoutManager = new LinearLayoutManager(this);
@@ -124,4 +131,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }

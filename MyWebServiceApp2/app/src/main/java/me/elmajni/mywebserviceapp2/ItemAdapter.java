@@ -2,6 +2,7 @@ package me.elmajni.mywebserviceapp2;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,18 +11,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.google.gson.Gson;
+
 import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
     List<Task> tasks;
     private Context context;
+    private ItemClickListener itemClickListener;
 
     public ItemAdapter(Context context, List<Task> tasks) {
         this.tasks = tasks;
@@ -46,41 +54,20 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         holder.taskname.setText(tasks.get(position).getName());
         holder.taskstatus.setText(tasks.get(position).getStatus());
         holder.taskDetails.setText(tasks.get(position).getDetails());
+
+        holder.itemView.setOnClickListener(view -> {
+            itemClickListener.onItemClick(tasks.get(position));
+        } );
+
         holder.btEdit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 //initialize main data
-                Task task= tasks.get(holder.getAdapterPosition());
-                //get id
-                final int ID=task.getId();
-                //get name
-                String name=task.getName();
-                //create dialog window for updating
-                final Dialog dialog=new Dialog(context);
-                //set content view
-                dialog.setContentView(R.layout.dialog_update);
-                //Initialize width & height
-                int width= WindowManager.LayoutParams.MATCH_PARENT;
-                int height=WindowManager.LayoutParams.WRAP_CONTENT;
-                dialog.getWindow().setLayout(width,height);
-
-                //show update dialog
-                dialog.show();
-
-                //Initialize views
-                EditText editText=dialog.findViewById(R.id.taskUpdate);
-                Button btUpdate=dialog.findViewById(R.id.btnUpdate);
-                editText.setText(name);
-
-                btUpdate.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //close dialog window
-                        dialog.dismiss();
-                        /////traitement
-                        notifyDataSetChanged();
-                    }
-                });
+                Intent intent = new Intent(context,UpdateTask.class);
+                Gson gson = new Gson();
+                String taskJson = gson.toJson(tasks.get(position));
+                intent.putExtra("contactJson", taskJson);
+                context.startActivity(intent);
             }
         });
 
@@ -96,7 +83,23 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                             @Override
                             public void onClick(SweetAlertDialog sDialog) {
                                 sDialog.dismissWithAnimation();
+                                /*Call<Task> call = Client.getRetrofitClient().deleteTask(tasks.get(position));
+                                call.enqueue(new Callback<Task>() {
+                                    @Override
+                                    public void onResponse(Call<Task> call, Response<Task> response) {
+                                        if (response.isSuccessful() && response.body() != null){
+                                            System.out.println(response.toString());
+                                            notifyDataSetChanged();
+                                        }
 
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Task> call, Throwable t) {
+                                        Toast.makeText(context, "Error : "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                                        System.out.println("error khaoula "+t.getMessage());
+                                    }
+                                });*/
                             }
                         })
                         .setCancelButton("Cancel", new SweetAlertDialog.OnSweetClickListener() {
@@ -134,4 +137,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             taskDetails = itemView.findViewById(R.id.details);
         }
     }
+
+    public interface ItemClickListener{
+        public void onItemClick(Task contact);
+        public void onItemLongClick(Task contact);
+    }
+
 }
