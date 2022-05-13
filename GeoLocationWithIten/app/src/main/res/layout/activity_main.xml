@@ -17,14 +17,31 @@
         android:padding="12dp"
         android:visibility="gone"></EditText>
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        android:layout_below="@+id/src"
+        android:layout_margin="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/location" />
+
     <EditText
         android:id="@+id/dst"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/src"
+        android:layout_below="@+id/animationView"
         android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_border"
+        android:drawableStart="@drawable/ic_baseline_not_listed_location_24"
         android:hint="Enter localisation de destination"
-        android:padding="12dp"></EditText>
+        android:padding="12dp"
+        android:shadowRadius="100"></EditText>
 
     <Button
         android:id="@+id/btn_track"
@@ -33,6 +50,7 @@
         android:layout_below="@+id/dst"
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_bg"
         android:text="Tracer le trajet"></Button>
 
 </RelativeLayout>
