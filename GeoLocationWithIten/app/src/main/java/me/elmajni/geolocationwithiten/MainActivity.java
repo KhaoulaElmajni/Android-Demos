@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
                 String src = etSrc.getText().toString().trim();
                 String dst = etDst.getText().toString().trim();
 
-                if (src.equals("") || dst.equals("")){
-                    Toast.makeText(MainActivity.this, "veuillez saisir les 2 Localisations", Toast.LENGTH_SHORT).show();
+                if (dst.equals("")){
+                    Toast.makeText(MainActivity.this, "veuillez saisir la Localisation de destination", Toast.LENGTH_SHORT).show();
                 }else {
                     displayTrajet(src,dst);
                 }
@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void displayTrajet(String src, String dst) {
         try{
-            Uri uri = Uri.parse("https://maps.google.com.in/maps/dir/"+src+ "/"+dst);
-            Intent intent = new Intent(Intent.ACTION_VIEW);
+            Uri uri = Uri.parse("http://maps.google.com/maps?saddr"+src+ "&daddr="+dst);
+            Intent intent = new Intent(Intent.ACTION_VIEW,uri);
             intent.setPackage("com.google.android.apps.maps");
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             //intent.setData(Uri.parse("geo:47.6788,19.8277"));

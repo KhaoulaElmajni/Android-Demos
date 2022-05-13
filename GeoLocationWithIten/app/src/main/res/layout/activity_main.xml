@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:hint="Entrer localisation Source"
-        android:padding="12dp"></EditText>
+        android:padding="12dp"
+        android:visibility="gone"></EditText>
 
     <EditText
         android:id="@+id/dst"
