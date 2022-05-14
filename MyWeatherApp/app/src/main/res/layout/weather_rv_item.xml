@@ -44,6 +44,18 @@
             android:padding="4dp"
             android:src="@mipmap/ic_launcher"
             ></ImageView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/idTVwindSpeed"
+            android:layout_below="@+id/idIVcondition"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:padding="3dp"
+            android:text="13"
+            android:textAlignment="center"
+            android:textColor="@color/white"/>
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
