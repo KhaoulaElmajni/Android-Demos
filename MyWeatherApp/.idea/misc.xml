@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/MyWeatherApp/app/src/main/res/drawable/card_back.xml" value="0.15" />
+        <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/MyWeatherApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1415" />
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/MyWeatherApp/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/khaoulaelmajni/AndroidStudioProjects/MyWeatherApp/app/src/main/res/layout/weather_rv_item.xml" value="0.27291666666666664" />
       </map>

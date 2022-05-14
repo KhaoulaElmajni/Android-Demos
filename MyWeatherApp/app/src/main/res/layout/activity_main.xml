@@ -7,13 +7,12 @@
     android:background="@color/black_shade"
     tools:context=".MainActivity">
 
-   <ProgressBar
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:id="@+id/pbLoading"
-       android:visibility="visible"
-       android:layout_centerInParent="true">
-   </ProgressBar>
+  <ProgressBar
+        android:id="@+id/pbLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="visible"></ProgressBar>
     <RelativeLayout
         android:id="@+id/home"
         android:layout_width="match_parent"
@@ -70,6 +69,8 @@
             <ImageView
                 android:id="@+id/idTVsearch"
                 android:layout_width="0dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:boxStrokeColor="@android:color/transparent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:layout_margin="10dp"
