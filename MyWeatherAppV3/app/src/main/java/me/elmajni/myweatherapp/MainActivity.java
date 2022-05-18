@@ -211,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
                         timeTV.setTextColor(R.color.black);
                         timeTxt.setTextColor(R.color.black);
                         conditionTV.setTextColor(R.color.black);*/
-                        Picasso.get().load("https://w0.peakpx.com/wallpaper/249/209/HD-wallpaper-lonely-tree-our-background-beautiful-nature-blue-sky-calm-chill-out-day-grass-green-fields-green-leaves-hill-hilltop-our-planet-graphy-plants-spring-summer-sunny-sunshine-white-thumbnail.jpg").into(backIV);
+                        Picasso.get().load("https://wallpaperaccess.com/full/3365447.jpg").into(backIV);
                     }else {
                         //night case
                         Picasso.get().load("https://wallpaperaccess.com/full/148508.jpg").into(backIV);
