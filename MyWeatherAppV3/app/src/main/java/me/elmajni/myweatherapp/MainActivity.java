@@ -226,11 +226,14 @@ public class MainActivity extends AppCompatActivity {
                         String temp = hourObj.getString("temp_c");
                         String img = hourObj.getJSONObject("condition").getString("icon");
                         String windS = hourObj.getString("wind_kph");
-                        arrayList.add(new Model(time,temp,img,windS));
+                        JSONObject day = forecastO.getJSONObject("day");
+                        String humid = day.getString("avghumidity");
+                        arrayList.add(new Model(time,temp,img,windS,humid));
                     }
                     JSONObject astro = forecastO.getJSONObject("astro");
                     sunriseTV.setText(sunriseTV.getText()+astro.getString("sunrise"));
                     sunsetTV.setText(sunsetTV.getText()+astro.getString("sunset"));
+
 
 
                     adapter.notifyDataSetChanged();

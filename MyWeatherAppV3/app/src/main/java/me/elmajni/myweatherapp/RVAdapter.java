@@ -40,6 +40,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
         holder.temperatureTV.setText(model.getTemperature()+"°C");
         Picasso.get().load("http:".concat(model.getIcon())).into(holder.conditionTV);
         holder.windTv.setText(model.getWindSpeed()+"Km/h");
+        holder.humidityTV.setText(model.getHumidity()+"%");
         SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd hh:mm");
         SimpleDateFormat output = new SimpleDateFormat("hh:mm aa");
         try{
@@ -56,7 +57,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView windTv, temperatureTV,timeTV;
+        private TextView windTv, temperatureTV,timeTV,humidityTV;
         private ImageView conditionTV;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -64,6 +65,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
             temperatureTV = itemView.findViewById(R.id.idTVtemperature);
             timeTV = itemView.findViewById(R.id.idTVtime);
             conditionTV = itemView.findViewById(R.id.idIVcondition);
+            humidityTV = itemView.findViewById(R.id.idTVhumidity);
         }
     }
 }

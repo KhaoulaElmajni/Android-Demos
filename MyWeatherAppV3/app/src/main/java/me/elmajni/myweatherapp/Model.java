@@ -5,14 +5,22 @@ public class Model {
     private String temperature;
     private String icon;
     private String windSpeed;
-    //private String humidity;
+    private String humidity;
 
+    public String getHumidity() {
+        return humidity;
+    }
 
-    public Model(String time, String temperature, String icon, String windSpeed) {
+    public void setHumidity(String humidity) {
+        this.humidity = humidity;
+    }
+
+    public Model(String time, String temperature, String icon, String windSpeed, String humidity) {
         this.time = time;
         this.temperature = temperature;
         this.icon = icon;
         this.windSpeed = windSpeed;
+        this.humidity = humidity;
     }
 
     public String getTime() {
