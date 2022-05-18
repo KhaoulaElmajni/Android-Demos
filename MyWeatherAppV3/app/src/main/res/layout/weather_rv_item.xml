@@ -33,7 +33,7 @@
             android:text="20"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/idIVcondition"
@@ -49,17 +49,35 @@
             android:src="@mipmap/ic_launcher" />
 
         <TextView
+            android:id="@+id/idTVhumidity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/idTVwindSpeed"
             android:layout_below="@+id/idIVcondition"
             android:layout_centerHorizontal="true"
-            android:layout_margin="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:gravity="center"
+            android:padding="3dp"
+            android:text="65"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/idTVwindSpeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/idTVhumidity"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
             android:gravity="center"
             android:padding="3dp"
             android:text="13"
             android:textAlignment="center"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

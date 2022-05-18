@@ -49,7 +49,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
     private RelativeLayout home;
     private ProgressBar loading;
-    private TextView cityNameTV, temperatureTV,conditionTV,timeTV,timeTxt;
+    private TextView cityNameTV, temperatureTV,conditionTV,timeTV,timeTxt,humidityTV,sunriseTV,sunsetTV;
     private RecyclerView weatherRV;
     private TextInputEditText cityEDT;
     private ImageView backIV, iconIV,searchIV;
@@ -77,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
         conditionTV =findViewById(R.id.idTVCondition);
         timeTV = findViewById(R.id.idTVtime);
         timeTxt = findViewById(R.id.timeTV);
+        humidityTV = findViewById(R.id.idTVhumidity);
+        sunriseTV = findViewById(R.id.sunrise);
+        sunsetTV = findViewById(R.id.sunset);
         weatherRV =findViewById(R.id.idRvWeather);
         cityEDT =findViewById(R.id.idEtCity);
         backIV =findViewById(R.id.background);
@@ -201,6 +204,7 @@ public class MainActivity extends AppCompatActivity {
                     Picasso.get().load("http:".concat(conditionIcon)).into(iconIV);
                     conditionTV.setText(condition);
                     timeTV.setText(timeLocal);
+
                     if (isDay==1){
                         //morning case
                         /*temperatureTV.setTextColor(R.color.black);
@@ -224,7 +228,9 @@ public class MainActivity extends AppCompatActivity {
                         String windS = hourObj.getString("wind_kph");
                         arrayList.add(new Model(time,temp,img,windS));
                     }
-
+                    JSONObject astro = forecastO.getJSONObject("astro");
+                    sunriseTV.setText(sunriseTV.getText()+astro.getString("sunrise"));
+                    sunsetTV.setText(sunsetTV.getText()+astro.getString("sunset"));
 
 
                     adapter.notifyDataSetChanged();

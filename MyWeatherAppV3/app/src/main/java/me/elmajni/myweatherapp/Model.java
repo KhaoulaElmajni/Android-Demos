@@ -5,6 +5,8 @@ public class Model {
     private String temperature;
     private String icon;
     private String windSpeed;
+    //private String humidity;
+
 
     public Model(String time, String temperature, String icon, String windSpeed) {
         this.time = time;
