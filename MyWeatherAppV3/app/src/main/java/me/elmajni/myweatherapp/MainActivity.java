@@ -192,6 +192,10 @@ public class MainActivity extends AppCompatActivity {
                     temperatureTV.setText(temperature+"°C");
                     int isDay = response.getJSONObject("current").getInt("is_day");
                     String timeLocal = response.getJSONObject("location").getString("localtime");
+
+                    theLat = response.getJSONObject("location").getDouble("lat");
+                    theLon = response.getJSONObject("location").getDouble("lon");
+
                     String condition = response.getJSONObject("current").getJSONObject("condition").getString("text");
                     String conditionIcon = response.getJSONObject("current").getJSONObject("condition").getString("icon");
                     Picasso.get().load("http:".concat(conditionIcon)).into(iconIV);
@@ -220,6 +224,8 @@ public class MainActivity extends AppCompatActivity {
                         String windS = hourObj.getString("wind_kph");
                         arrayList.add(new Model(time,temp,img,windS));
                     }
+
+
 
                     adapter.notifyDataSetChanged();
 
